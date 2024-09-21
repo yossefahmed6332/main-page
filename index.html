@@ -31,28 +31,6 @@
                 transform: translateY(0);
             }
         }
-        .header {
-            display: flex;
-            align-items: center; /* Center vertically */
-            margin-bottom: 20px;
-        }
-        img {
-            width: 150px; /* Adjust width as needed */
-            height: auto;
-            border: 2px solid #debf76;
-            border-radius: 10px;
-            margin-right: 20px; /* Space between image and text */
-        }
-        .header-text {
-            color: #debf76;
-        }
-        .header-text h1 {
-            margin: 0;
-            animation: slideInLeft 1s ease-out; /* Animation */
-        }
-        .header-text p {
-            margin: 0;
-        }
         .power-box {
             background-color: black; /* Black background */
             color: #debf76; /* Text color */
@@ -103,10 +81,6 @@
         }
         /* Responsive improvements */
         @media (max-width: 768px) {
-            img {
-                width: 100%; /* Make image responsive */
-                margin: 0; /* Reset margin */
-            }
             .header {
                 flex-direction: column; /* Stack image and text on smaller screens */
                 align-items: flex-start; /* Align left */
@@ -117,13 +91,6 @@
 <body>
 
     <div class="container">
-        <div class="header">
-            <img src="/mnt/data/my.image.png" alt="Discover Your Inner Strength">
-            <div class="header-text">
-                <h1>Discover Your Inner Strength</h1>
-                <p>Source Discipline</p>
-            </div>
-        </div>
 
         <div class="power-box">
             Know Your Power
