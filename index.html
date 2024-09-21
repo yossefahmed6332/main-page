@@ -17,6 +17,19 @@
         .container {
             max-width: 1200px;
             margin: 0 auto;
+            opacity: 0;
+            transform: translateY(50px); /* Start from below */
+            animation: fadeInUp 1.5s ease-out forwards; /* Animation */
+        }
+        @keyframes fadeInUp {
+            0% {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
         .header {
             display: flex;
@@ -35,6 +48,7 @@
         }
         .header-text h1 {
             margin: 0;
+            animation: slideInLeft 1s ease-out; /* Animation */
         }
         .header-text p {
             margin: 0;
@@ -46,12 +60,16 @@
             text-align: center; /* Center text */
             font-size: 24px;
             margin-bottom: 20px; /* Space below */
+            animation: slideInLeft 1s ease-out; /* Animation */
         }
         .section {
             background-color: #4E3B2B; /* Lighter brown for sections */
             padding: 15px;
             border-radius: 8px;
             margin-bottom: 20px;
+            opacity: 0;
+            transform: translateY(20px); /* Start from below */
+            animation: fadeInUp 1s ease-out forwards; /* Animation */
         }
         .buttons {
             display: flex;
