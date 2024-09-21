@@ -70,6 +70,13 @@
             opacity: 0;
             transform: translateY(20px); /* Start from below */
             animation: fadeInUp 1s ease-out forwards; /* Animation */
+            transition: transform 0.3s ease, background-color 0.3s ease;
+        }
+        /* Add hover effect */
+        .section:hover {
+            background-color: #debf76; /* Highlight the box */
+            color: black; /* Change text color */
+            transform: translateY(-10px); /* Lift up slightly */
         }
         .buttons {
             display: flex;
@@ -111,7 +118,7 @@
 
     <div class="container">
         <div class="header">
-            <img src="my.image.png" alt="Discover Your Inner Strength">
+            <img src="/mnt/data/my.image.png" alt="Discover Your Inner Strength">
             <div class="header-text">
                 <h1>Discover Your Inner Strength</h1>
                 <p>Source Discipline</p>
