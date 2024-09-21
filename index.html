@@ -74,7 +74,7 @@
             padding: 20px;
             border-radius: 10px;
             margin-bottom: 30px;
-            transition: transform 0.3s ease, background-color 0.3s ease;
+            transition: transform 0.3s ease, background-color 0.3s ease, color 0.3s ease;
             box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
             transform: translateX(-100px);
             opacity: 0;
@@ -196,12 +196,17 @@
     </div>
 
     <script>
-        // Interactive feature to dynamically change section color when clicked
+        // Interactive feature to dynamically change section background and text color when clicked
         const sections = document.querySelectorAll('.section');
         sections.forEach(section => {
             section.addEventListener('click', () => {
-                section.style.backgroundColor = section.style.backgroundColor === 'black' ? '#debf76' : 'black';
-                section.style.color = section.style.color === 'black' ? '#debf76' : 'black';
+                if (section.style.backgroundColor === 'black') {
+                    section.style.backgroundColor = '#4E3B2B'; // Reset to original background
+                    section.style.color = '#debf76'; // Reset text color
+                } else {
+                    section.style.backgroundColor = 'black'; // Change background color
+                    section.style.color = '#debf76'; // Ensure text remains visible
+                }
             });
         });
 
