@@ -18,6 +18,7 @@
             font-family: 'Roboto', Arial, sans-serif;
             line-height: 1.6;
             padding: 20px;
+            overflow-x: hidden; /* Prevent horizontal scroll */
         }
         .container {
             max-width: 1200px;
@@ -48,6 +49,23 @@
             margin-bottom: 30px;
             border-radius: 10px;
             box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+            animation: bounceIn 2s ease-out forwards;
+        }
+
+        /* Bounce-in animation */
+        @keyframes bounceIn {
+            0% {
+                transform: scale(0.5);
+                opacity: 0;
+            }
+            50% {
+                transform: scale(1.2);
+                opacity: 0.8;
+            }
+            100% {
+                transform: scale(1);
+                opacity: 1;
+            }
         }
 
         /* Section styling with hover effect */
@@ -58,6 +76,16 @@
             margin-bottom: 30px;
             transition: transform 0.3s ease, background-color 0.3s ease;
             box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+            transform: translateX(-100px);
+            opacity: 0;
+            animation: slideIn 1s ease-out forwards;
+        }
+
+        @keyframes slideIn {
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
         }
 
         .section:hover {
@@ -83,6 +111,9 @@
             justify-content: center;
             gap: 20px;
             margin-top: 40px;
+            opacity: 0;
+            transform: translateY(100px);
+            animation: fadeInUp 2s ease-out 1.5s forwards;
         }
 
         .button {
@@ -94,12 +125,18 @@
             font-size: 16px;
             text-decoration: none;
             border-radius: 5px;
-            transition: opacity 0.3s;
+            transition: opacity 0.3s, transform 0.3s;
             box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
         }
 
         .button:hover {
             opacity: 0.8;
+            transform: scale(1.1);
+        }
+
+        /* Scroll-triggered animations */
+        .visible {
+            animation: slideIn 1s ease-out forwards;
         }
 
         /* Media query for smaller devices */
@@ -165,6 +202,22 @@
             section.addEventListener('click', () => {
                 section.style.backgroundColor = section.style.backgroundColor === 'black' ? '#debf76' : 'black';
                 section.style.color = section.style.color === 'black' ? '#debf76' : 'black';
+            });
+        });
+
+        // Add scroll-triggered animation
+        window.addEventListener('scroll', () => {
+            const sections = document.querySelectorAll('.section');
+            const triggerBottom = window.innerHeight / 5 * 4;
+
+            sections.forEach(section => {
+                const sectionTop = section.getBoundingClientRect().top;
+
+                if (sectionTop < triggerBottom) {
+                    section.classList.add('visible');
+                } else {
+                    section.classList.remove('visible');
+                }
             });
         });
     </script>
