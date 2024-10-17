@@ -6,18 +6,18 @@
     <title>Step Zer0</title>
     <style>
         body {
-            background-color: #3E2723; /* Dark brown background color */
+            background-color: #3E2723; /* Dark brown background */
             color: #debf76; /* Text color */
-            font-family: 'Roboto', Arial, sans-serif; /* Use a professional font */
+            font-family: 'Roboto', Arial, sans-serif; /* Professional font */
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            animation: colorChange 3s ease-in-out; /* Color-changing effect */
+            animation: colorChange 3s ease-in-out; /* Color change on load */
         }
         
         @keyframes colorChange {
             0% {
-                background-color: #FFEB3B; /* Yellow for initial effect */
+                background-color: #FFEB3B; /* Initial yellow */
             }
             100% {
                 background-color: #3E2723; /* Revert to dark brown */
@@ -29,11 +29,74 @@
             margin: 0 auto;
             padding: 20px;
             display: flex;
-            flex-direction: column; /* Stack elements vertically */
-            align-items: center; /* Center content */
+            flex-direction: column;
+            align-items: center;
         }
         
-        /* Rest of your styles remain the same */
+        .header-box {
+            background-color: #000;
+            color: #debf76;
+            text-align: center;
+            padding: 15px;
+            font-size: 28px;
+            font-weight: bold;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+        
+        .content {
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+        }
+        
+        .image-container {
+            flex: 1;
+            margin-right: 20px;
+        }
+        
+        img {
+            width: 100%;
+            height: auto;
+            max-height: 600px;
+            border: 2px solid #debf76;
+            border-radius: 10px;
+            transition: transform 0.3s;
+        }
+        
+        img:hover {
+            transform: scale(1.05); /* Hover effect */
+        }
+        
+        .notice {
+            flex: 1;
+        }
+        
+        /* Updated notice text */
+        .notice p {
+            margin: 10px 0;
+        }
+        
+        .boxes-container {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            width: 100%;
+            margin-top: 20px;
+        }
+        
+        .box {
+            background-color: rgba(0, 0, 0, 0.7);
+            padding: 20px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+        
+        .box:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+            transform: scale(1.02);
+        }
         
         .button-container {
             display: flex;
@@ -53,12 +116,52 @@
             font-weight: bold;
             text-align: center;
             border-radius: 5px;
-            transition: background-color 0.3s, transform 0.3s; /* Smooth transition */
+            transition: background-color 0.3s, transform 0.3s;
         }
         
         .button:hover {
-            background-color: #c9a455; /* Darken button on hover */
-            transform: scale(1.05); /* Scale effect on hover */
+            background-color: #c9a455;
+            transform: scale(1.05);
+        }
+        
+        .footer {
+            margin-top: 40px;
+            text-align: center;
+        }
+        
+        .footer a {
+            color: #debf76;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        
+        .footer a:hover {
+            opacity: 0.8;
+        }
+        
+        /* Social Media Section */
+        .social-media {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            margin-top: 30px;
+        }
+        
+        .circle {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            overflow: hidden;
+            background-color: yellow; /* Ensures full yellow background */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .circle img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
         }
     </style>
 </head>
@@ -66,16 +169,55 @@
 
     <div class="container">
         <div class="header-box">
-            About Step Zer0
+            Step Zer0
         </div>
 
         <div class="content">
-            <!-- Content and notice remains unchanged -->
+            <div class="image-container">
+                <img src="https://imgur.com/XExoBdT.jpg" alt="Book Image">
+            </div>
+            <div class="notice">
+                <p>If you don't need a book that opens your mind towards discipline, do not continue.</p>
+                <p>If you need to grow, then you desperately need this book, especially for the mindset.</p>
+                <p>This book is designed for those with weak mindsets. If you need to grow mentally, then keep reading.</p>
+                <p>Know your lines, it is mindset.</p>
+            </div>
+        </div>
+
+        <div class="social-media">
+            <!-- Instagram Circle -->
+            <a href="https://www.instagram.com/inspire_organize_your_life/profilecard/?igsh=cHZudTdrZWttOGhs" target="_blank" class="circle">
+                <img src="https://imgur.com/FQIZncU.png" alt="Instagram">
+            </a>
+            <!-- Add the rest of your social media circles here -->
         </div>
 
         <div class="boxes-container">
-            <!-- Your features and details boxes here -->
+            <!-- Replaced Value section with Features -->
+            <div class="box">
+                <h1>Features</h1>
+                <p>Know yourself, your goals, and ambitions, and how do you define them?</p>
+                <p>How to find yourself?</p>
+                <p>One of the most powerful tricks to stay organized until you reach the summit</p>
+                <p>What is a growth mindset? What does it have to do with errors? What is the relationship between it and fear?</p>
+                <p>What is fear and where does it come from? How to make your mind overcome it</p>
+                <p>Habits, discipline</p>
+                <p>Interactive quizzes to test your knowledge and growth</p>
+                <p>Downloadable resources for further learning</p>
+                <p>Community forum for discussion and support</p>
+            </div>
         </div>
 
         <!-- Updated buttons at the bottom -->
-       
+        <div class="button-container">
+            <div class="button" onclick="window.open('https://docs.google.com/document/d/1xLPtpR7AI3iqSRiOK9WY25CoqCAPHlt2/edit?usp=drive_link&ouid=111912314992372195962&rtpof=true&sd=true')">Free Page</div>
+            <div class="button" onclick="window.open('https://yossef4.gumroad.com/l/knowyourself')">Buy Now</div>
+        </div>
+
+        <div class="footer">
+            <p>&copy; 2024 Step Zer0. All rights reserved. <a href="#">Privacy Policy</a></p>
+        </div>
+    </div>
+
+</body>
+</html>
