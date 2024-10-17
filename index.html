@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Know Your Inner Strength</title>
+    <title>Step Zer0</title>
     <style>
         body {
             background-color: #3E2723; /* Dark brown background color */
@@ -119,6 +119,29 @@
         .footer a:hover {
             opacity: 0.8;
         }
+        /* Contact list styling */
+        .contact-container {
+            display: flex;
+            gap: 20px; /* Space between circles */
+            margin-top: 40px; /* Space above contact list */
+        }
+        .contact-circle {
+            width: 80px; /* Circle size */
+            height: 80px;
+            border-radius: 50%; /* Make circle */
+            overflow: hidden; /* Hide overflow */
+            border: 2px solid #debf76; /* Circle border */
+            cursor: pointer; /* Cursor change on hover */
+            transition: transform 0.3s; /* Smooth transition */
+        }
+        .contact-circle img {
+            width: 100%; /* Full width of circle */
+            height: 100%; /* Full height of circle */
+            object-fit: cover; /* Cover the circle */
+        }
+        .contact-circle:hover {
+            transform: scale(1.1); /* Scale effect on hover */
+        }
         /* Responsive improvements */
         @media (max-width: 768px) {
             .content {
@@ -130,8 +153,18 @@
                 margin-bottom: 20px; /* Add bottom margin for spacing */
                 width: 90%; /* Adjusted width for mobile */
             }
+            .notice {
+                width: 90%; /* Ensure full width for notice on mobile */
+                top: 10%; /* Adjust top position for mobile */
+                left: 5%; /* Adjust left position for mobile */
+                right: 5%; /* Adjust right position for mobile */
+            }
             .boxes-container {
                 width: 90%; /* Ensure full width on mobile */
+            }
+            .contact-container {
+                flex-direction: column; /* Stack circles vertically on mobile */
+                align-items: center; /* Center align circles */
             }
         }
     </style>
@@ -140,7 +173,7 @@
 
     <div class="container">
         <div class="header-box">
-            About our book
+            Step Zer0
         </div>
 
         <div class="content">
@@ -159,14 +192,16 @@
 
         <div class="boxes-container">
             <div class="box" onclick="changeBoxColor(this)">
-                <h1>Value</h1>
-                <p>We are here</p>
-                <p>• Know yourself, your goals and ambitions, and how do you define them?</p>
-                <p>• How to find yourself?</p>
-                <p>• One of the most powerful tricks to stay organized until you reach the summit</p>
-                <p>• What is a growth mindset? What does it have to do with errors? What is the relationship between it and fear?</p>
-                <p>• What is fear and where does it come from? How to make your mind overcome it</p>
-                <p>• Habits, discipline</p>
+                <h1>Features:</h1>
+                <p>Know yourself, your goals, and ambitions, and how do you define them?</p>
+                <p>How to find yourself?</p>
+                <p>One of the most powerful tricks to stay organized until you reach the summit</p>
+                <p>What is a growth mindset? What does it have to do with errors? What is the relationship between it and fear?</p>
+                <p>What is fear and where does it come from? How to make your mind overcome it</p>
+                <p>Habits, discipline</p>
+                <p>Interactive quizzes to test your knowledge and growth</p>
+                <p>Downloadable resources for further learning</p>
+                <p>Community forum for discussion and support</p>
             </div>
 
             <div class="box" onclick="changeBoxColor(this)">
@@ -177,23 +212,35 @@
             </div>
         </div>
 
+        <div class="contact-container">
+            <div class="contact-circle" onclick="window.open('https://www.instagram.com/inspire_organize_your_life/profilecard/?igsh=cHZudTdrZWttOGhs')">
+                <img src="https://imgur.com/QRsal5x.jpg" alt="Instagram">
+            </div>
+            <div class="contact-circle" onclick="window.open('https://www.tiktok.com/@rick35022?_t=8qcaE6V6cCW&_r=1')">
+                <img src="https://imgur.com/11iledh.jpg" alt="TikTok">
+            </div>
+            <div class="contact-circle" onclick="window.open('https://youtube.com/@david_p-c1k?si=JuXoOvwhvuFOnqJN')">
+                <img src="https://imgur.com/QRsal5x.jpg" alt="YouTube">
+            </div>
+            <div class="contact-circle" onclick="window.open('mailto:ste2pzero0@gmail.com')">
+                <img src="https://imgur.com/527gjHT.jpg" alt="WhatsApp">
+            </div>
+        </div>
+
         <div class="button-container">
-            <a class="button" href="https://docs.google.com/document/d/1xLPtpR7AI3iqSRiOK9WY25CoqCAPHlt2/edit?usp=drive_link&ouid=111912314992372195962&rtpof=true&sd=true">Free Page</a>
-            <a class="button" href="https://yossef4.gumroad.com/l/knowyourself">Buy Now</a>
+            <button class="button" onclick="alert('Coming Soon!')">Download</button>
+            <button class="button" onclick="alert('Join Our Community!')">Join</button>
         </div>
 
         <div class="footer">
-            <p>If you are interested in psychology <a href="https://www.instagram.com/david_ppr_?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank">click me</a></p>
+            <p>&copy; 2024 Step Zer0. All rights reserved. <a href="#">Privacy Policy</a></p>
         </div>
     </div>
 
     <script>
-        // Function to change background color on box click
         function changeBoxColor(box) {
-            const currentColor = box.style.backgroundColor;
-            box.style.backgroundColor = (currentColor === 'rgba(255, 255, 255, 0.3)') ? 'rgba(0, 0, 0, 0.7)' : 'rgba(255, 255, 255, 0.3)';
+            box.style.backgroundColor = box.style.backgroundColor === 'rgba(0, 0, 0, 0.7)' ? 'rgba(0, 0, 0, 0.9)' : 'rgba(0, 0, 0, 0.7)';
         }
     </script>
-
 </body>
 </html>
