@@ -78,9 +78,28 @@
             cursor: pointer; /* Cursor change on hover */
             transition: background-color 0.3s, transform 0.3s; /* Smooth transition */
             position: relative; /* Positioning for effect */
-            flex: 1; /* Equal width */
-            margin: 0 10px; /* Margin between boxes */
-            max-width: 250px; /* Limit max width */
+        }
+        .box:hover {
+            background-color: rgba(255, 255, 255, 0.1); /* Slight change on hover */
+            transform: scale(1.02); /* Scale effect on hover */
+        }
+        /* New boxes styling */
+        .yellow-box {
+            background-color: #debf76; /* Yellow background */
+            color: black; /* Text color */
+            padding: 20px;
+            border-radius: 8px;
+            cursor: pointer; /* Cursor change on hover */
+            transition: background-color 0.3s, transform 0.3s; /* Smooth transition */
+            display: flex;
+            justify-content: center; /* Center content */
+            align-items: center; /* Center content */
+            flex: 1; /* Allow boxes to share space */
+            margin: 0 10px; /* Space between boxes */
+        }
+        .yellow-box:hover {
+            background-color: #c9a455; /* Darken button on hover */
+            transform: scale(1.02); /* Scale effect on hover */
         }
         .button-container {
             display: flex;
@@ -121,13 +140,12 @@
         /* Contact list styling */
         .contact-container {
             display: flex;
-            gap: 20px; /* Space between circles */
+            gap: 10px; /* Space between circles */
             margin-top: 20px; /* Space above contact list */
-            justify-content: center; /* Center align circles */
         }
         .contact-circle {
             width: 60px; /* Circle size */
-            height: 60px;
+            height: 60px; /* Adjusted size */
             border-radius: 50%; /* Make circle */
             overflow: hidden; /* Hide overflow */
             border: 2px solid #debf76; /* Circle border */
@@ -189,46 +207,51 @@
         </div>
 
         <div class="boxes-container">
-            <div class="box" onclick="window.open('https://docs.google.com/document/d/1xLPtpR7AI3iqSRiOK9WY25CoqCAPHlt2/edit?usp=drive_link&ouid=111912314992372195962&rtpof=true&sd=true')">
-                <h1>Free Page</h1>
+            <div class="box">
+                <h1>Features:</h1>
+                <p>Know yourself, your goals, and ambitions, and how do you define them?</p>
+                <p>How to find yourself?</p>
+                <p>One of the most powerful tricks to stay organized until you reach the summit</p>
+                <p>What is a growth mindset? What does it have to do with errors? What is the relationship between it and fear?</p>
+                <p>What is fear and where does it come from? How to make your mind overcome it</p>
+                <p>Habits, discipline</p>
+                <p>Interactive quizzes to test your knowledge and growth</p>
+                <p>Downloadable resources for further learning</p>
+                <p>Community forum for discussion and support</p>
             </div>
-            <div class="box" onclick="window.open('https://yossef4.gumroad.com/l/knowyourself')">
-                <h1>Buy Now</h1>
-            </div>
-        </div>
 
-        <div class="contact-container">
-            <div class="contact-circle" onclick="window.open('https://www.instagram.com/inspire_organize_your_life/profilecard/?igsh=cHZudTdrZWttOGhs')">
-                <img src="https://imgur.com/FQIZncU.jpg" alt="Instagram">
-            </div>
-            <div class="contact-circle" onclick="window.open('https://www.tiktok.com/@rick35022?_t=8qcaE6V6cCW&_r=1')">
-                <img src="https://imgur.com/11iledh.jpg" alt="TikTok">
-            </div>
-            <div class="contact-circle" onclick="window.open('https://youtube.com/@david_p-c1k?si=JuXoOvwhvuFOnqJN')">
-                <img src="https://imgur.com/QRsal5x.jpg" alt="YouTube">
-            </div>
-            <div class="contact-circle" onclick="window.open('mailto:ste2pzero0@gmail.com')">
-                <img src="https://imgur.com/527gjHT.jpg" alt="WhatsApp">
+            <div class="box">
+                <h1>Details</h1>
+                <p>Pages: 25</p>
+                <p>Chapters: 4</p>
+                <p>Chapters: Who are you, Stay Organized, Perseverance, Habits</p>
             </div>
         </div>
 
         <div class="button-container">
-            <button class="button" onclick="alert('Coming Soon!')">Download</button>
-            <button class="button" onclick="alert('Join Our Community!')">Join</button>
+            <div class="yellow-box" onclick="window.open('https://docs.google.com/document/d/1xLPtpR7AI3iqSRiOK9WY25CoqCAPHlt2/edit?usp=drive_link&ouid=111912314992372195962&rtpof=true&sd=true')">
+                Get Free Page
+            </div>
+            <div class="yellow-box" onclick="window.open('https://yossef4.gumroad.com/l/knowyourself')">
+                Buy Now
+            </div>
         </div>
 
-        <div class="footer">
-            <a href="#">Terms of Service</a> | 
-            <a href="#">Privacy Policy</a>
+        <div class="contact-container">
+            <div class="contact-circle" onclick="window.open('https://www.instagram.com/rick35022')">
+                <img src="https://imgur.com/QRsal5x.jpg" alt="Instagram">
+            </div>
+            <div class="contact-circle" onclick="window.open('https://youtube.com/@david_p-c1k?si=JuXoOvwhvuFOnqJN')">
+                <img src="https://imgur.com/QRsal5x.jpg" alt="YouTube">
+            </div>
+            <div class="contact-circle" onclick="window.open('https://www.tiktok.com/@rick35022?_t=8qcaE6V6cCW&_r=1')">
+                <img src="https://imgur.com/11iledh.jpg" alt="TikTok">
+            </div>
+            <div class="contact-circle" onclick="window.location.href='mailto:ste2pzero0@gmail.com'">
+                <img src="https://imgur.com/527gjHT.jpg" alt="Email">
+            </div>
         </div>
     </div>
 
-    <script>
-        // Change background color on page load
-        document.body.style.backgroundColor = "#FFC107"; // Temporary color
-        setTimeout(function() {
-            document.body.style.backgroundColor = "#3E2723"; // Original color
-        }, 3000); // Change back after 3 seconds
-    </script>
 </body>
 </html>
