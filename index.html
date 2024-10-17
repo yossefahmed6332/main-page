@@ -22,14 +22,17 @@
         .container {
             max-width: 1200px;
             margin: 0 auto;
+            padding: 20px; /* إضافة padding للمساحة الداخلية */
         }
         h1 {
             color: #e0dd35;
             text-align: center;
+            margin-bottom: 20px; /* تباعد أسفل العنوان */
         }
         .box {
+            background-color: rgba(255, 255, 255, 0.1); /* خلفية للصناديق */
             border: 2px solid #e0dd35;
-            padding: 15px;
+            padding: 20px;
             margin-bottom: 20px;
             border-radius: 10px;
             opacity: 0; /* لجعل الصناديق غير مرئية في البداية */
@@ -44,6 +47,10 @@
                 transform: translateY(0); /* الوصول إلى الوضع الأصلي */
                 opacity: 1; /* يجعل الصندوق مرئي */
             }
+        }
+        .buttons {
+            text-align: center; /* توسيط الأزرار */
+            margin-bottom: 20px; /* تباعد أسفل الأزرار */
         }
         .buttons a {
             display: inline-block;
@@ -80,6 +87,12 @@
             width: 100%;
             height: 100%;
             object-fit: cover; /* الحفاظ على نسبة العرض إلى الارتفاع */
+        }
+        ul {
+            padding-left: 20px; /* تباعد داخل القائمة */
+        }
+        li {
+            margin-bottom: 10px; /* تباعد بين العناصر في القائمة */
         }
     </style>
 </head>
