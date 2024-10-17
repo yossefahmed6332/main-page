@@ -3,162 +3,197 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Step zer0</title>
+    <title>Know Your Inner Strength</title>
     <style>
         body {
-            background-color: #4d2b00;
-            font-family: Arial, sans-serif;
-            color: #f3ce7d;
+            background-color: #3E2723; /* Dark brown background color */
+            color: #debf76; /* Text color */
+            font-family: 'Roboto', Arial, sans-serif; /* Use a professional font */
             margin: 0;
-            padding: 20px;
-            opacity: 0; /* لجعل الصفحة غير مرئية في البداية */
-            animation: fadeIn 1s forwards; /* إضافة تأثير ظهور تدريجي */
-        }
-        @keyframes fadeIn {
-            to {
-                opacity: 1; /* يجعل الصفحة مرئية */
-            }
+            padding: 0;
+            box-sizing: border-box;
         }
         .container {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 20px; /* إضافة padding للمساحة الداخلية */
-        }
-        h1 {
-            color: #e0dd35;
-            text-align: center;
-            margin-bottom: 20px; /* تباعد أسفل العنوان */
-        }
-        .box {
-            background-color: rgba(255, 255, 255, 0.1); /* خلفية للصناديق */
-            border: 2px solid #e0dd35;
             padding: 20px;
-            margin-bottom: 20px;
-            border-radius: 10px;
-            opacity: 0; /* لجعل الصناديق غير مرئية في البداية */
-            animation: slideIn 0.5s forwards; /* إضافة تأثير ظهور تدريجي لكل صندوق */
+            display: flex;
+            flex-direction: column; /* Stack elements vertically */
+            align-items: center; /* Center content */
         }
-        @keyframes slideIn {
+        .header-box {
+            background-color: #000; /* Black background for header box */
+            color: #debf76; /* Text color for header */
+            text-align: center;
+            padding: 15px;
+            font-size: 28px; /* Increased font size */
+            font-weight: bold;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            animation: fadeInDown 1.5s ease-out forwards; /* Animation */
+        }
+        @keyframes fadeInDown {
             0% {
-                transform: translateY(20px); /* بدءاً من أسفل */
                 opacity: 0;
+                transform: translateY(-50px);
             }
             100% {
-                transform: translateY(0); /* الوصول إلى الوضع الأصلي */
-                opacity: 1; /* يجعل الصندوق مرئي */
+                opacity: 1;
+                transform: translateY(0);
             }
         }
-        .buttons {
-            text-align: center; /* توسيط الأزرار */
-            margin-top: 20px; /* تباعد أعلى الأزرار */
-        }
-        .buttons a {
-            display: inline-block;
-            background-color: #e0dd35;
-            color: black;
-            padding: 10px 20px;
-            text-decoration: none;
-            margin: 0 10px; /* تباعد بين الأزرار */
-            transition: background-color 0.3s;
-        }
-        .buttons a:hover {
-            background-color: #c8c80e; /* لون مختلف عند التمرير */
-        }
-        .social-icons {
+        .content {
             display: flex;
-            justify-content: space-around;
-            margin-top: 20px;
-        }
-        .social-icon {
-            width: 80px;
-            height: 80px;
-            border-radius: 50%;
-            border: 5px solid #e0dd35;
-            overflow: hidden; /* لقص الصورة داخل الدائرة */
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            transition: transform 0.3s;
-        }
-        .social-icon:hover {
-            transform: scale(1.1); /* تكبير عند التمرير */
-        }
-        .social-icon img {
+            flex-wrap: nowrap; /* Prevent wrapping for side by side layout */
+            justify-content: space-between; /* Space between items */
             width: 100%;
-            height: 100%;
-            object-fit: cover; /* الحفاظ على نسبة العرض إلى الارتفاع */
+            position: relative; /* Position for absolute elements */
         }
-        ul {
-            padding-left: 20px; /* تباعد داخل القائمة */
+        .image-container {
+            flex: 1 1 40%; /* Responsive image container */
+            margin-right: 20px; /* Spacing to the right */
         }
-        li {
-            margin-bottom: 10px; /* تباعد بين العناصر في القائمة */
+        img {
+            width: 100%; /* Full width of the container */
+            height: auto; /* Maintain aspect ratio */
+            max-height: 600px; /* Set a maximum height */
+            border: 2px solid #debf76;
+            border-radius: 10px;
+            transition: transform 0.3s; /* Smooth transition */
+        }
+        img:hover {
+            transform: scale(1.05); /* Scale effect on hover */
+        }
+        .boxes-container {
+            display: flex;
+            flex-direction: column; /* Stack boxes vertically */
+            gap: 20px; /* Space between boxes */
+            width: 100%; /* Full width */
+            margin-top: 20px; /* Space above boxes */
+        }
+        .box {
+            background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent background */
+            padding: 20px;
+            border-radius: 8px;
+            cursor: pointer; /* Cursor change on hover */
+            transition: background-color 0.3s, transform 0.3s; /* Smooth transition */
+            position: relative; /* Positioning for effect */
+        }
+        .box:hover {
+            background-color: rgba(255, 255, 255, 0.1); /* Slight change on hover */
+            transform: scale(1.02); /* Scale effect on hover */
+        }
+        .button-container {
+            display: flex;
+            justify-content: center; /* Center buttons */
+            gap: 20px;
+            margin-top: 40px;
+        }
+        .button {
+            background-color: #debf76;
+            color: black;
+            padding: 15px 30px;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+            text-transform: uppercase;
+            font-weight: bold;
+            text-align: center;
+            border-radius: 5px;
+            transition: background-color 0.3s, transform 0.3s; /* Smooth transition */
+        }
+        .button:hover {
+            background-color: #c9a455; /* Darken button on hover */
+            transform: scale(1.05); /* Scale effect on hover */
+        }
+        /* Footer link */
+        .footer {
+            margin-top: 40px;
+            text-align: center;
+        }
+        .footer a {
+            color: #debf76;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        .footer a:hover {
+            opacity: 0.8;
+        }
+        /* Responsive improvements */
+        @media (max-width: 768px) {
+            .content {
+                flex-direction: column; /* Stack elements in a column on mobile */
+                align-items: center; /* Center align items */
+            }
+            .image-container {
+                margin-right: 0; /* Remove right margin */
+                margin-bottom: 20px; /* Add bottom margin for spacing */
+                width: 90%; /* Adjusted width for mobile */
+            }
+            .boxes-container {
+                width: 90%; /* Ensure full width on mobile */
+            }
         }
     </style>
 </head>
 <body>
 
     <div class="container">
-        <h1>Step zer0</h1>
-        <p><strong>Know your lines, it is mindset</strong></p>
-
-        <div class="box">
-            <h2>Notice:</h2>
-            <p>If you don't need a book that opens your mind towards discipline, do not continue.</p>
-            <p>If you need to grow, then you desperately need this book, especially for the mindset.</p>
-            <p>This book is designed for those with weak mindsets. If you need to grow mentally, then keep reading.</p>
+        <div class="header-box">
+            About our book
         </div>
 
-        <div class="box">
-            <h2>Features:</h2>
-            <ul>
-                <li>Know yourself, your goals, and ambitions, and how do you define them?</li>
-                <li>How to find yourself?</li>
-                <li>One of the most powerful tricks to stay organized until you reach the summit</li>
-                <li>What is a growth mindset? What does it have to do with errors? What is the relationship between it and fear?</li>
-                <li>What is fear and where does it come from? How to make your mind overcome it</li>
-                <li>Habits, discipline</li>
-                <li>Interactive quizzes to test your knowledge and growth</li>
-                <li>Downloadable resources for further learning</li>
-                <li>Community forum for discussion and support</li>
-            </ul>
-        </div>
-
-        <div class="box">
-            <h2>Details:</h2>
-            <p><strong>Pages:</strong> 25</p>
-            <p><strong>Chapters:</strong> 4</p>
-            <p><strong>Chapters:</strong> Who are you, Stay Organized, Perseverance, Habits</p>
-        </div>
-
-        <div class="box">
-            <h2>Contact me:</h2>
-            <p>+201222358694</p>
-            <div class="social-icons">
-                <!-- First Circle Image -->
-                <a class="social-icon" href="https://www.instagram.com/inspire_organize_your_life/profilecard/?igsh=cHZudTdrZWttOGhs" target="_blank">
-                    <img src="https://i.imgur.com/qKdZywI.png" alt="Instagram">
-                </a>
-                <!-- Second Circle Image -->
-                <a class="social-icon" href="https://www.tiktok.com/@rick35022?_t=8qcaE6V6cCW&_r=1" target="_blank">
-                    <img src="https://i.imgur.com/11iledh.png" alt="TikTok">
-                </a>
-                <!-- Third Circle Image -->
-                <a class="social-icon" href="https://youtube.com/@david_p-c1k?si=JuXoOvwhvuFOnqJN" target="_blank">
-                    <img src="https://i.imgur.com/QRsal5x.png" alt="YouTube">
-                </a>
-                <!-- Fourth Circle Image -->
-                <a class="social-icon" href="mailto:ste2pzero0@gmail.com">
-                    <img src="https://i.imgur.com/527gjHT.png" alt="Email">
-                </a>
+        <div class="content">
+            <div class="image-container">
+                <img src="https://imgur.com/XExoBdT.jpg" alt="Book Image">
+            </div>
+            <div class="notice">
+                <p><strong>Notice:</strong></p>
+                <p>- This content is only intended for specific people</p>
+                <p>- Those who are unable to be organized and persevere</p>
+                <p>- Always distracted</p>
+                <p>This book provides you with assistance in taking your first step into the real world</p>
+                <p>- If you do not have goals and accept your failure, I will be wasting your time if you continue reading</p>
             </div>
         </div>
 
-        <div class="buttons">
-            <a href="https://docs.google.com/document/d/1xLPtpR7AI3iqSRiOK9WY25CoqCAPHlt2/edit?usp=drive_link&ouid=111912314992372195962&rtpof=true&sd=true" target="_blank">Free Page</a>
-            <a href="https://yossef4.gumroad.com/l/knowyourself" target="_blank">Buy Now</a>
+        <div class="boxes-container">
+            <div class="box" onclick="changeBoxColor(this)">
+                <h1>Value</h1>
+                <p>We are here</p>
+                <p>• Know yourself, your goals and ambitions, and how do you define them?</p>
+                <p>• How to find yourself?</p>
+                <p>• One of the most powerful tricks to stay organized until you reach the summit</p>
+                <p>• What is a growth mindset? What does it have to do with errors? What is the relationship between it and fear?</p>
+                <p>• What is fear and where does it come from? How to make your mind overcome it</p>
+                <p>• Habits, discipline</p>
+            </div>
+
+            <div class="box" onclick="changeBoxColor(this)">
+                <h1>Details</h1>
+                <p>Pages: 25</p>
+                <p>Chapters: 4</p>
+                <p>Chapters: Who are you, Stay Organized, Perseverance, Habits</p>
+            </div>
+        </div>
+
+        <div class="button-container">
+            <a class="button" href="https://docs.google.com/document/d/1xLPtpR7AI3iqSRiOK9WY25CoqCAPHlt2/edit?usp=drive_link&ouid=111912314992372195962&rtpof=true&sd=true">Free Page</a>
+            <a class="button" href="https://yossef4.gumroad.com/l/knowyourself">Buy Now</a>
+        </div>
+
+        <div class="footer">
+            <p>If you are interested in psychology <a href="https://www.instagram.com/david_ppr_?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank">click me</a></p>
         </div>
     </div>
+
+    <script>
+        // Function to change background color on box click
+        function changeBoxColor(box) {
+            const currentColor = box.style.backgroundColor;
+            box.style.backgroundColor = (currentColor === 'rgba(255, 255, 255, 0.3)') ? 'rgba(0, 0, 0, 0.7)' : 'rgba(255, 255, 255, 0.3)';
+        }
+    </script>
 
 </body>
 </html>
