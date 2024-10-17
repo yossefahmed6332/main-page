@@ -56,7 +56,7 @@
         img {
             width: 100%; /* Full width of the container */
             height: auto; /* Maintain aspect ratio */
-            max-height: 480px; /* Set a maximum height */
+            max-height: 600px; /* Set a maximum height */
             border: 2px solid #debf76;
             border-radius: 10px;
             transition: transform 0.3s; /* Smooth transition */
@@ -78,10 +78,9 @@
             cursor: pointer; /* Cursor change on hover */
             transition: background-color 0.3s, transform 0.3s; /* Smooth transition */
             position: relative; /* Positioning for effect */
-        }
-        .box:hover {
-            background-color: rgba(255, 255, 255, 0.1); /* Slight change on hover */
-            transform: scale(1.02); /* Scale effect on hover */
+            flex: 1; /* Equal width */
+            margin: 0 10px; /* Margin between boxes */
+            max-width: 250px; /* Limit max width */
         }
         .button-container {
             display: flex;
@@ -122,8 +121,9 @@
         /* Contact list styling */
         .contact-container {
             display: flex;
-            gap: 10px; /* Space between circles */
+            gap: 20px; /* Space between circles */
             margin-top: 20px; /* Space above contact list */
+            justify-content: center; /* Center align circles */
         }
         .contact-circle {
             width: 60px; /* Circle size */
@@ -192,7 +192,6 @@
             <div class="box" onclick="window.open('https://docs.google.com/document/d/1xLPtpR7AI3iqSRiOK9WY25CoqCAPHlt2/edit?usp=drive_link&ouid=111912314992372195962&rtpof=true&sd=true')">
                 <h1>Free Page</h1>
             </div>
-
             <div class="box" onclick="window.open('https://yossef4.gumroad.com/l/knowyourself')">
                 <h1>Buy Now</h1>
             </div>
@@ -215,9 +214,21 @@
 
         <div class="button-container">
             <button class="button" onclick="alert('Coming Soon!')">Download</button>
-            <button class="button" onclick="alert('Coming Soon!')">Join Us</button>
+            <button class="button" onclick="alert('Join Our Community!')">Join</button>
+        </div>
+
+        <div class="footer">
+            <a href="#">Terms of Service</a> | 
+            <a href="#">Privacy Policy</a>
         </div>
     </div>
 
+    <script>
+        // Change background color on page load
+        document.body.style.backgroundColor = "#FFC107"; // Temporary color
+        setTimeout(function() {
+            document.body.style.backgroundColor = "#3E2723"; // Original color
+        }, 3000); // Change back after 3 seconds
+    </script>
 </body>
 </html>
