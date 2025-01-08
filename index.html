@@ -1,205 +1,104 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ar">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Know Your Inner Strength</title>
+    <title>Landing Page</title>
     <style>
-        body {
-            background-color: #3E2723; /* Dark brown background color */
-            color: #debf76; /* Text color */
-            font-family: 'Roboto', Arial, sans-serif; /* Use a professional font */
+        * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
+
+        body, html {
+            height: 100%;
+            font-family: Arial, sans-serif;
+        }
+
         .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 20px;
             display: flex;
-            flex-direction: column; /* Stack elements vertically */
-            align-items: center; /* Center content */
+            height: 100%;
         }
-        .header-box {
-            background-color: #000; /* Black background for header box */
-            color: #debf76; /* Text color for header */
-            text-align: center;
-            padding: 15px;
-            font-size: 28px; /* Increased font size */
-            font-weight: bold;
-            border-radius: 8px;
-            margin-bottom: 20px;
-            animation: fadeInDown 1.5s ease-out forwards; /* Animation */
+
+        .image-section {
+            width: 33.33%;
+            height: 100%;
+            overflow: hidden; /* لإخفاء أي جزء من الصورة يتجاوز الحواف */
         }
-        @keyframes fadeInDown {
+
+        .image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            animation: slideIn 0.67s ease-out forwards;
+        }
+
+        @keyframes slideIn {
             0% {
-                opacity: 0;
-                transform: translateY(-50px);
+                transform: translateX(-100%);
             }
             100% {
-                opacity: 1;
-                transform: translateY(0);
+                transform: translateX(0);
             }
         }
-        .content {
+
+        .text-section {
+            width: 66.66%;
             display: flex;
-            flex-wrap: nowrap; /* Prevent wrapping for side by side layout */
-            justify-content: space-between; /* Space between items */
-            width: 100%;
-            position: relative; /* Position for absolute elements */
+            justify-content: center;
+            align-items: center;
+            padding: 0 20px; /* إضافة Padding للمسافة بين البوكس والحواف */
         }
-        .image-container {
-            flex: 1 1 40%; /* Responsive image container */
-            margin-right: 20px; /* Spacing to the right */
-        }
-        img {
-            width: 100%; /* Full width of the container */
-            height: auto; /* Maintain aspect ratio */
-            max-height: 600px; /* Set a maximum height */
-            border: 2px solid #debf76;
-            border-radius: 10px;
-            transition: transform 0.3s; /* Smooth transition */
-        }
-        img:hover {
-            transform: scale(1.05); /* Scale effect on hover */
-        }
-        .boxes-container {
-            display: flex;
-            flex-direction: column; /* Stack boxes vertically */
-            gap: 20px; /* Space between boxes */
-            width: 100%; /* Full width */
-            margin-top: 20px; /* Space above boxes */
-        }
+
         .box {
-            background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent background */
-            padding: 20px;
-            border-radius: 8px;
-            cursor: pointer; /* Cursor change on hover */
-            transition: background-color 0.3s, transform 0.3s; /* Smooth transition */
-            position: relative; /* Positioning for effect */
-        }
-        .box:hover {
-            background-color: rgba(255, 255, 255, 0.1); /* Slight change on hover */
-            transform: scale(1.02); /* Scale effect on hover */
-        }
-        .button-container {
-            display: flex;
-            justify-content: center; /* Center buttons */
-            gap: 20px;
-            margin-top: 40px;
-        }
-        .button {
-            background-color: #debf76;
-            color: black;
-            padding: 15px 30px;
-            border: none;
+            background-color: blue;
+            color: white;
+            padding: 10px 20px; /* تقليص المسافة داخل البوكس */
+            font-size: 22px; /* تقليل حجم الخط */
+            border-radius: 10px;
             cursor: pointer;
-            font-size: 16px;
-            text-transform: uppercase;
-            font-weight: bold;
-            text-align: center;
-            border-radius: 5px;
-            transition: background-color 0.3s, transform 0.3s; /* Smooth transition */
+            transition: background-color 0.3s ease, transform 0.3s ease;
+            margin: 0; /* إزالة أي مسافة إضافية حول البوكس */
         }
-        .button:hover {
-            background-color: #c9a455; /* Darken button on hover */
-            transform: scale(1.05); /* Scale effect on hover */
-        }
-        /* Footer link */
-        .footer {
-            margin-top: 40px;
-            text-align: center;
-        }
-        .footer a {
-            color: #debf76;
-            text-decoration: none;
-            font-weight: bold;
-        }
-        .footer a:hover {
-            opacity: 0.8;
-        }
-        /* Responsive improvements */
-        @media (max-width: 768px) {
-            .content {
-                flex-direction: column; /* Stack elements in a column on mobile */
-                align-items: center; /* Center align items */
-            }
-            .image-container {
-                margin-right: 0; /* Remove right margin */
-                margin-bottom: 20px; /* Add bottom margin for spacing */
-                width: 90%; /* Adjusted width for mobile */
-            }
-            .notice {
-                width: 90%; /* Ensure full width for notice on mobile */
-                top: 10%; /* Adjust top position for mobile */
-                left: 5%; /* Adjust left position for mobile */
-                right: 5%; /* Adjust right position for mobile */
-            }
-            .boxes-container {
-                width: 90%; /* Ensure full width on mobile */
-            }
+
+        .box:hover {
+            background-color: darkblue;
+            transform: scale(1.1);
         }
     </style>
 </head>
 <body>
-
+    <!-- صفحة الـ Landing Page -->
     <div class="container">
-        <div class="header-box">
-            About our book
+        <div class="image-section">
+            <img src="https://i.imgur.com/l1hCo6p.jpeg" alt="Space Image" class="image" id="alienImage">
         </div>
-
-        <div class="content">
-            <div class="image-container">
-                <img src="https://imgur.com/XExoBdT.jpg" alt="Book Image">
+        <div class="text-section">
+            <div class="box" id="cookBox" onclick="goToPage()">
+                Cook in space
             </div>
-            <div class="notice">
-                <p><strong>Notice:</strong></p>
-                <p>- This content is only intended for specific people</p>
-                <p>- Those who are unable to be organized and persevere</p>
-                <p>- Always distracted</p>
-                <p>This book provides you with assistance in taking your first step into the real world</p>
-                <p>- If you do not have goals and accept your failure, I will be wasting your time if you continue reading</p>
-            </div>
-        </div>
-
-        <div class="boxes-container">
-            <div class="box" onclick="changeBoxColor(this)">
-                <h1>Value</h1>
-                <p>We are here</p>
-                <p>• Know yourself, your goals and ambitions, and how do you define them?</p>
-                <p>• How to find yourself?</p>
-                <p>• One of the most powerful tricks to stay organized until you reach the summit</p>
-                <p>• What is a growth mindset? What does it have to do with errors? What is the relationship between it and fear?</p>
-                <p>• What is fear and where does it come from? How to make your mind overcome it</p>
-                <p>• Habits, discipline</p>
-            </div>
-
-            <div class="box" onclick="changeBoxColor(this)">
-                <h1>Details</h1>
-                <p>Pages: 25</p>
-                <p>Chapters: 4</p>
-                <p>Chapters: Who are you, Stay Organized, Perseverance, Habits</p>
-            </div>
-        </div>
-
-        <div class="button-container">
-            <a class="button" href="https://docs.google.com/document/d/1xLPtpR7AI3iqSRiOK9WY25CoqCAPHlt2/edit?usp=drive_link&ouid=111912314992372195962&rtpof=true&sd=true">Free Page</a>
-            <a class="button" href="https://yossef4.gumroad.com/l/knowyourself">Buy Now</a>
-        </div>
-
-        <div class="footer">
-            <p>If you are interested in psychology <a href="https://www.instagram.com/david_ppr_?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank">click me</a></p>
         </div>
     </div>
 
     <script>
-        // Function to change background color on box click
-        function changeBoxColor(box) {
-            const currentColor = box.style.backgroundColor;
-            box.style.backgroundColor = (currentColor === 'rgba(255, 255, 255, 0.3)') ? 'rgba(0, 0, 0, 0.7)' : 'rgba(255, 255, 255, 0.3)';
+        // الوظيفة التي ستحدث عند الضغط على البوكس
+        function goToPage() {
+            // تغيير لون البوكس عند الضغط عليه
+            const box = document.getElementById('cookBox');
+            box.style.backgroundColor = 'darkblue';
+            
+            // الانتقال إلى الصفحة التالية (Main Page)
+            setTimeout(() => {
+                document.body.innerHTML = `
+                    <div class="main-container">
+                        <div class="main-box">
+                            Welcome to the Main Page!
+                        </div>
+                    </div>
+                `;
+            }, 300); // التأخير قبل الانتقال
         }
     </script>
-
 </body>
 </html>
