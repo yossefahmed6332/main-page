@@ -19,11 +19,10 @@
         .container {
             display: flex;
             height: 100%;
-            position: relative;
         }
 
         .image-section {
-            width: 33.33%;
+            width: 40%; /* 40% من العرض للصور */
             height: 100%;
             overflow: hidden;
         }
@@ -32,56 +31,41 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
-            animation: slideIn 0.67s ease-out forwards;
-        }
-
-        @keyframes slideIn {
-            0% {
-                transform: translateX(-100%);
-            }
-            100% {
-                transform: translateX(0);
-            }
         }
 
         .text-section {
-            width: 66.66%;
+            width: 60%; /* 60% من العرض للمحتوى */
             display: flex;
-            justify-content: center;
-            align-items: center;
             flex-direction: column;
+            justify-content: center;
             padding: 20px;
             color: black;
-            position: absolute;
-            top: 20%;
-            left: 50%;
-            transform: translateX(-50%);
         }
 
         .title {
             font-size: 28px; /* حجم خط أكبر للعنوان */
             font-weight: bold;
             margin-bottom: 10px;
-            text-align: center;
+            text-align: left;
         }
 
         .paragraph {
             font-size: 18px;
-            text-align: center;
-            margin-bottom: 20px;
+            text-align: left;
+            margin-bottom: 15px;
         }
 
         .box {
             background-color: blue;
             color: white;
-            padding: 10px 20px;
+            padding: 15px 30px;
             font-size: 22px;
             border-radius: 10px;
             cursor: pointer;
             transition: background-color 0.3s ease, transform 0.3s ease;
             margin: 0;
-            position: absolute;
-            bottom: 0;
+            position: fixed;
+            bottom: 20px; /* يتم وضعه أسفل الصفحة */
             left: 50%;
             transform: translateX(-50%);
         }
@@ -100,7 +84,7 @@
     <!-- صفحة الـ Landing Page -->
     <div class="container">
         <div class="image-section">
-            <img src="https://i.imgur.com/l1hCo6p.jpeg" alt="Space Image" class="image" id="alienImage">
+            <img src="https://i.imgur.com/l1hCo6p.jpeg" alt="Space Image" class="image">
         </div>
         <div class="text-section">
             <div class="title">Cook Every 15 Minutes – The Ultimate Time-Saver Cookbook</div>
@@ -113,10 +97,11 @@
             <p class="paragraph">
                 Start now and begin cooking with fast, healthy recipes that guarantee a delicious meal every time!
             </p>
-            <div class="box" id="cookBox" onclick="goToPage()">
-                Cook in space
-            </div>
         </div>
+    </div>
+
+    <div class="box" id="cookBox" onclick="goToPage()">
+        Cook in space
     </div>
 
     <script>
