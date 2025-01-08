@@ -19,12 +19,13 @@
         .container {
             display: flex;
             height: 100%;
+            position: relative;
         }
 
         .image-section {
             width: 33.33%;
             height: 100%;
-            overflow: hidden; /* لإخفاء أي جزء من الصورة يتجاوز الحواف */
+            overflow: hidden;
         }
 
         .image {
@@ -48,23 +49,50 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            padding: 0 20px; /* إضافة Padding للمسافة بين البوكس والحواف */
+            flex-direction: column;
+            padding: 20px;
+            color: black;
+            position: absolute;
+            top: 20%;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .title {
+            font-size: 28px; /* حجم خط أكبر للعنوان */
+            font-weight: bold;
+            margin-bottom: 10px;
+            text-align: center;
+        }
+
+        .paragraph {
+            font-size: 18px;
+            text-align: center;
+            margin-bottom: 20px;
         }
 
         .box {
             background-color: blue;
             color: white;
-            padding: 10px 20px; /* تقليص المسافة داخل البوكس */
-            font-size: 22px; /* تقليل حجم الخط */
+            padding: 10px 20px;
+            font-size: 22px;
             border-radius: 10px;
             cursor: pointer;
             transition: background-color 0.3s ease, transform 0.3s ease;
-            margin: 0; /* إزالة أي مسافة إضافية حول البوكس */
+            margin: 0;
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
         }
 
         .box:hover {
             background-color: darkblue;
-            transform: scale(1.1);
+            transform: scale(1.2);
+        }
+
+        .box:active {
+            transform: scale(0.9);
         }
     </style>
 </head>
@@ -75,6 +103,16 @@
             <img src="https://i.imgur.com/l1hCo6p.jpeg" alt="Space Image" class="image" id="alienImage">
         </div>
         <div class="text-section">
+            <div class="title">Cook Every 15 Minutes – The Ultimate Time-Saver Cookbook</div>
+            <p class="paragraph">
+                Do you only have 15 minutes to prepare a delicious meal? "Cook Every 15 Minutes" is your perfect cookbook for enjoying tasty food without wasting time. The book features a collection of quick and delicious recipes that take no more than 15 minutes to prepare, making it the ideal choice for those with busy lifestyles who still want to enjoy great meals with minimal effort.
+            </p>
+            <p class="paragraph">
+                Whether you're a beginner in the kitchen or a professional chef, this book will help you create a variety of meals that fit into your tight schedule, using simple and easy-to-find ingredients.
+            </p>
+            <p class="paragraph">
+                Start now and begin cooking with fast, healthy recipes that guarantee a delicious meal every time!
+            </p>
             <div class="box" id="cookBox" onclick="goToPage()">
                 Cook in space
             </div>
