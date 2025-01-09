@@ -14,10 +14,10 @@
         body, html {
             height: 100%;
             font-family: Arial, sans-serif;
-            background-image: url('https://i.imgur.com/EhKYhOy.jpg'); /* تعيين صورة الخلفية */
-            background-size: cover; /* جعل الصورة تغطي كامل المساحة */
-            background-position: center; /* وضع الصورة في المنتصف */
-            background-attachment: fixed; /* جعل الصورة ثابتة عند التمرير */
+            background-image: url('https://i.imgur.com/ZELcG3u.jpeg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
         }
 
         .container {
@@ -41,9 +41,9 @@
             width: 60%;
             display: flex;
             flex-direction: column;
-            justify-content: center;
+            justify-content: flex-start;
             padding: 20px;
-            color: black;
+            color: white;
         }
 
         .title {
@@ -57,13 +57,14 @@
             font-size: 18px;
             text-align: left;
             margin-bottom: 15px;
+            line-height: 1.6;
         }
 
         .box {
-            background-color: blue;
+            background-color: #1E3A8A; /* أغمق لون الأزرق */
             color: white;
             padding: 15px 30px;
-            font-size: 22px;
+            font-size: 18px;
             border-radius: 10px;
             cursor: pointer;
             transition: background-color 0.3s ease, transform 0.3s ease;
@@ -72,20 +73,102 @@
             bottom: 20px;
             left: 50%;
             transform: translateX(-50%);
+            width: 200px;
+            text-align: center;
         }
 
         .box:hover {
-            background-color: darkblue;
-            transform: scale(1.2);
+            background-color: #3B82F6;
         }
 
         .box:active {
             transform: scale(0.9);
         }
+
+        .boxes-container {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            position: fixed;
+            bottom: 100px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .box-detail {
+            background-color: #1E3A8A; /* أغمق لون الأزرق */
+            color: white;
+            padding: 15px 30px;
+            font-size: 18px;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+            width: 200px;
+            text-align: center;
+        }
+
+        .box-detail:hover {
+            background-color: #3B82F6;
+        }
+
+        .box-detail:active {
+            transform: scale(0.9);
+        }
+
+        /* @media query for better responsiveness on mobile devices */
+        @media (max-width: 768px) {
+            .title {
+                font-size: 24px;
+            }
+
+            .paragraph {
+                font-size: 16px;
+                line-height: 1.6;
+            }
+
+            .box, .box-detail {
+                width: 180px;
+                padding: 12px 24px;
+                font-size: 16px;
+            }
+
+            .container {
+                flex-direction: column;
+            }
+
+            .image-section, .text-section {
+                width: 100%;
+            }
+
+            .image {
+                object-fit: contain;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .title {
+                font-size: 20px;
+            }
+
+            .paragraph {
+                font-size: 14px;
+            }
+
+            .box, .box-detail {
+                width: 130px;
+                padding: 8px 18px;
+                font-size: 14px;
+            }
+
+            .boxes-container {
+                flex-direction: column;
+                bottom: 80px;
+            }
+        }
+
     </style>
 </head>
 <body>
-    <!-- صفحة الـ Landing Page -->
     <div class="container">
         <div class="image-section">
             <img src="https://i.imgur.com/l1hCo6p.jpeg" alt="Space Image" class="image">
@@ -101,30 +184,29 @@
             <p class="paragraph">
                 Start now and begin cooking with fast, healthy recipes that guarantee a delicious meal every time!
             </p>
+            <div class="title">Something for Everyone: Recipes for Meat Lovers and Vegetarians</div>
+            <p class="paragraph">
+                In "Cook Every 15 Minutes," we offer a wide variety of recipes designed to satisfy all tastes. Whether you're passionate about meat dishes or prefer plant-based meals, you'll find numerous options that cater to your needs. The book is divided into two specialized sections: one dedicated to hearty meat dishes and protein-packed juices, and the other focused on delicious, healthy plant-based recipes using fresh, vegetarian ingredients. This division ensures a culinary journey that caters to both meat lovers and vegetarians. Each recipe is crafted to be ready in just 15 minutes, offering the perfect solution for those who want to enjoy a tasty, nutritious meal in no time.
+            </p>
+            <div class="title">Why You Need This Cookbook</div>
+            <p class="paragraph">
+                This cookbook is the perfect solution for individuals with busy lives who still want to enjoy delicious, healthy meals without spending a lot of time in the kitchen. With recipes that can be prepared in just 15 minutes, it offers a quick and convenient way to prepare tasty dishes. Whether you're a meat lover or follow a plant-based diet, this book has something for everyone, with sections dedicated to both protein-packed meat dishes and fresh, vegetarian meals. The recipes are designed using simple, easy-to-find ingredients, ensuring that even beginners can cook with ease. By providing healthy, balanced meals in a short amount of time, this cookbook is the ideal choice for anyone looking to save time while eating well.
+            </p>
         </div>
     </div>
 
-    <div class="box" id="cookBox" onclick="goToPage()">
-        Cook in space
+    <div class="boxes-container">
+        <div class="box-detail" onclick="window.location.href = 'https://example.com/details'">
+            Details
+        </div>
+        <div class="box-detail" onclick="window.location.href = 'https://example.com/cook-in-space'">
+            Cook in Space
+        </div>
     </div>
 
     <script>
-        // الوظيفة التي ستحدث عند الضغط على البوكس
         function goToPage() {
-            // تغيير لون البوكس عند الضغط عليه
-            const box = document.getElementById('cookBox');
-            box.style.backgroundColor = 'darkblue';
-            
-            // الانتقال إلى الصفحة التالية (Main Page)
-            setTimeout(() => {
-                document.body.innerHTML = `
-                    <div class="main-container">
-                        <div class="main-box">
-                            Welcome to the Main Page!
-                        </div>
-                    </div>
-                `;
-            }, 300); // التأخير قبل الانتقال
+            window.location.href = 'main-page.html';
         }
     </script>
 </body>
