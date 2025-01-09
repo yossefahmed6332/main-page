@@ -18,6 +18,12 @@
             background-size: cover;
             background-position: center;
             background-attachment: fixed;
+            opacity: 0;
+            transition: opacity 0.5s ease-in-out;
+        }
+
+        body.loaded {
+            opacity: 1;
         }
 
         .container {
@@ -85,16 +91,6 @@
             transform: scale(0.9);
         }
 
-        .boxes-container {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            position: fixed;
-            bottom: 100px;
-            left: 50%;
-            transform: translateX(-50%);
-        }
-
         .box-detail {
             background-color: #1E3A8A; /* أغمق لون الأزرق */
             color: white;
@@ -112,7 +108,17 @@
         }
 
         .box-detail:active {
-            transform: scale(0.9);
+            transform: scale(1.1); /* زيادة حجم البوكس عند اللمس */
+        }
+
+        .boxes-container {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            position: fixed;
+            bottom: 100px;
+            left: 50%;
+            transform: translateX(-50%);
         }
 
         /* @media query for better responsiveness on mobile devices */
@@ -165,10 +171,9 @@
                 bottom: 80px;
             }
         }
-
     </style>
 </head>
-<body>
+<body onload="document.body.classList.add('loaded')">
     <div class="container">
         <div class="image-section">
             <img src="https://i.imgur.com/l1hCo6p.jpeg" alt="Space Image" class="image">
