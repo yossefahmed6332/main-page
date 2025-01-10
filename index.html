@@ -18,23 +18,21 @@
             background-size: cover;
             background-position: center;
             background-attachment: fixed;
-            opacity: 0;
-            transition: opacity 0.5s ease-in-out;
-        }
-
-        body.loaded {
-            opacity: 1;
         }
 
         .container {
             display: flex;
             height: 100%;
+            flex-direction: row;
         }
 
         .image-section {
             width: 40%;
             height: 100%;
             overflow: hidden;
+            opacity: 0;
+            transform: translateY(-50px);
+            animation: fadeIn 1s forwards;
         }
 
         .image {
@@ -52,102 +50,118 @@
             color: white;
         }
 
+        .title, .section-title, .paragraph {
+            opacity: 0;
+            transform: translateY(20px);
+        }
+
         .title {
             font-size: 28px;
             font-weight: bold;
             margin-bottom: 10px;
             text-align: left;
+            animation: fadeIn 1s 1s forwards;
+        }
+
+        .section-title {
+            font-size: 28px;
+            font-weight: bold;
+            margin-bottom: 10px;
+            text-align: left;
+            animation: fadeIn 1s 2s forwards;
         }
 
         .paragraph {
             font-size: 18px;
             text-align: left;
             margin-bottom: 15px;
-            line-height: 1.6;
+            animation: fadeIn 1s 3s forwards;
         }
 
         .box {
-            background-color: #1E3A8A; /* أغمق لون الأزرق */
+            background-color: #0066cc;
             color: white;
-            padding: 15px 30px;
+            padding: 12px 24px;
             font-size: 18px;
-            border-radius: 10px;
+            border-radius: 8px;
             cursor: pointer;
-            transition: background-color 0.3s ease, transform 0.3s ease;
-            margin: 0;
-            position: fixed;
-            bottom: 20px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 200px;
+            margin: 10px;
+            width: 180px;
+            height: 50px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
             text-align: center;
+            animation: fadeIn 1s 4s forwards, pulse 2s infinite;
+            transition: background-color 0.3s, transform 0.3s;
         }
 
         .box:hover {
-            background-color: #3B82F6;
-        }
-
-        .box:active {
-            transform: scale(0.9);
-        }
-
-        .box-detail {
-            background-color: #1E3A8A; /* أغمق لون الأزرق */
-            color: white;
-            padding: 15px 30px;
-            font-size: 18px;
-            border-radius: 10px;
-            cursor: pointer;
-            transition: background-color 0.3s ease, transform 0.3s ease;
-            width: 200px;
-            text-align: center;
-        }
-
-        .box-detail:hover {
-            background-color: #3B82F6;
-        }
-
-        .box-detail:active {
-            transform: scale(1.1); /* زيادة حجم البوكس عند اللمس */
+            background-color: #0055a5;
+            transform: scale(1.05);
         }
 
         .boxes-container {
             display: flex;
             justify-content: center;
-            gap: 20px;
-            position: fixed;
-            bottom: 100px;
-            left: 50%;
-            transform: translateX(-50%);
+            align-items: flex-start;
+            margin-top: 20px;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeIn 1s 4s forwards;
         }
 
-        /* @media query for better responsiveness on mobile devices */
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.1);
+            }
+        }
+
+        /* Responsive Design */
         @media (max-width: 768px) {
+            .container {
+                flex-direction: column;
+            }
+
+            .image-section {
+                width: 100%;
+                height: auto;
+            }
+
+            .text-section {
+                width: 100%;
+                padding: 10px;
+            }
+
             .title {
                 font-size: 24px;
             }
 
             .paragraph {
                 font-size: 16px;
-                line-height: 1.6;
             }
 
-            .box, .box-detail {
-                width: 180px;
-                padding: 12px 24px;
+            .box {
+                width: 150px;
+                height: 45px;
                 font-size: 16px;
+                padding: 10px 20px;
             }
 
-            .container {
+            .boxes-container {
                 flex-direction: column;
-            }
-
-            .image-section, .text-section {
-                width: 100%;
-            }
-
-            .image {
-                object-fit: contain;
+                align-items: center;
+                margin-top: 20px;
             }
         }
 
@@ -160,20 +174,17 @@
                 font-size: 14px;
             }
 
-            .box, .box-detail {
+            .box {
                 width: 130px;
-                padding: 8px 18px;
+                height: 40px;
                 font-size: 14px;
-            }
-
-            .boxes-container {
-                flex-direction: column;
-                bottom: 80px;
+                padding: 8px 18px;
             }
         }
     </style>
 </head>
-<body onload="document.body.classList.add('loaded')">
+<body>
+
     <div class="container">
         <div class="image-section">
             <img src="https://i.imgur.com/l1hCo6p.jpeg" alt="Space Image" class="image">
@@ -189,30 +200,56 @@
             <p class="paragraph">
                 Start now and begin cooking with fast, healthy recipes that guarantee a delicious meal every time!
             </p>
-            <div class="title">Something for Everyone: Recipes for Meat Lovers and Vegetarians</div>
+            
+            <div class="section-title">Something for Everyone: Recipes for Meat Lovers and Vegetarians</div>
             <p class="paragraph">
                 In "Cook Every 15 Minutes," we offer a wide variety of recipes designed to satisfy all tastes. Whether you're passionate about meat dishes or prefer plant-based meals, you'll find numerous options that cater to your needs. The book is divided into two specialized sections: one dedicated to hearty meat dishes and protein-packed juices, and the other focused on delicious, healthy plant-based recipes using fresh, vegetarian ingredients. This division ensures a culinary journey that caters to both meat lovers and vegetarians. Each recipe is crafted to be ready in just 15 minutes, offering the perfect solution for those who want to enjoy a tasty, nutritious meal in no time.
             </p>
-            <div class="title">Why You Need This Cookbook</div>
+
+            <div class="section-title">Why You Need This Cookbook</div>
             <p class="paragraph">
                 This cookbook is the perfect solution for individuals with busy lives who still want to enjoy delicious, healthy meals without spending a lot of time in the kitchen. With recipes that can be prepared in just 15 minutes, it offers a quick and convenient way to prepare tasty dishes. Whether you're a meat lover or follow a plant-based diet, this book has something for everyone, with sections dedicated to both protein-packed meat dishes and fresh, vegetarian meals. The recipes are designed using simple, easy-to-find ingredients, ensuring that even beginners can cook with ease. By providing healthy, balanced meals in a short amount of time, this cookbook is the ideal choice for anyone looking to save time while eating well.
             </p>
-        </div>
-    </div>
 
-    <div class="boxes-container">
-        <div class="box-detail" onclick="window.location.href = 'https://example.com/details'">
-            Details
-        </div>
-        <div class="box-detail" onclick="window.location.href = 'https://example.com/cook-in-space'">
-            Cook in Space
+            <div class="boxes-container">
+                <div class="box-container">
+                    <div class="box" onclick="goToDetailsPage()">Details</div>
+                </div>
+                <div class="box-container">
+                    <div class="box" onclick="goToCookInSpace()">Cook in Space</div>
+                </div>
+            </div>
         </div>
     </div>
 
     <script>
-        function goToPage() {
-            window.location.href = 'main-page.html';
+        function goToDetailsPage() {
+            animateButton("Details");
+            setTimeout(() => {
+                window.location.href = "your-link-here"; // رابط الصفحة الخاصة بالتفاصيل
+            }, 500); // تأخير صغير لإعطاء تأثير النقر
+        }
+
+        function goToCookInSpace() {
+            animateButton("Cook in Space");
+            setTimeout(() => {
+                window.location.href = "https://example.com"; // رابط صفحة "Cook in Space"
+            }, 500); // تأخير صغير لإعطاء تأثير النقر
+        }
+
+        function animateButton(buttonText) {
+            const buttons = document.querySelectorAll('.box');
+            buttons.forEach(button => {
+                if (button.textContent === buttonText) {
+                    button.style.transform = "scale(1.2)";
+                    button.style.transition = "transform 0.2s";
+                    setTimeout(() => {
+                        button.style.transform = "scale(1)";
+                    }, 200); // إعادة الحجم الطبيعي بعد التأثير
+                }
+            });
         }
     </script>
+
 </body>
 </html>
