@@ -75,7 +75,7 @@
             font-size: 18px;
             text-align: left;
             margin-bottom: 15px;
-            animation: fadeIn 1s 3s forwards;
+            animation: fadeIn 0.5s 3s forwards;
         }
 
         .box {
@@ -111,6 +111,15 @@
             animation: fadeIn 1s 4s forwards;
         }
 
+        .floating-image {
+            position: fixed;
+            bottom: 10px;
+            left: 10px;
+            width: 100px;
+            height: 100px;
+            animation: floatUpDown 2s infinite;
+        }
+
         @keyframes fadeIn {
             to {
                 opacity: 1;
@@ -124,6 +133,15 @@
             }
             50% {
                 transform: scale(1.1);
+            }
+        }
+
+        @keyframes floatUpDown {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-10px);
             }
         }
 
@@ -163,6 +181,11 @@
                 align-items: center;
                 margin-top: 20px;
             }
+
+            .floating-image {
+                width: 80px;
+                height: 80px;
+            }
         }
 
         @media (max-width: 480px) {
@@ -180,6 +203,11 @@
                 font-size: 14px;
                 padding: 8px 18px;
             }
+
+            .floating-image {
+                width: 60px;
+                height: 60px;
+            }
         }
     </style>
 </head>
@@ -187,7 +215,6 @@
 
     <div class="container">
         <div class="image-section">
-            <!-- تم استبدال الرابط هنا بالصورة الجديدة -->
             <img src="https://i.imgur.com/zKBg8mI.jpeg" alt="New Space Image" class="image">
         </div>
         <div class="text-section">
@@ -222,6 +249,9 @@
             </div>
         </div>
     </div>
+
+    <!-- الصورة المضافة في الزاوية السفلية اليسرى -->
+    <img src="https://i.imgur.com/cgwSe7u.jpeg" alt="Floating Image" class="floating-image">
 
     <script>
         function goToDetailsPage() {
