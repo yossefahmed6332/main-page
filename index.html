@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Landing Page</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap">
     <style>
         * {
             margin: 0;
@@ -13,11 +14,50 @@
 
         body, html {
             height: 100%;
-            font-family: Arial, sans-serif;
-            background-image: url('https://i.imgur.com/ZELcG3u.jpeg');
+            font-family: 'Roboto', sans-serif;
+        }
+
+        .fade-in-background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('https://i.imgur.com/JayqIIR.jpg');
             background-size: cover;
             background-position: center;
-            background-attachment: fixed;
+            opacity: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            animation: fadeInBackground 3s forwards; /* تم تسريع fade-in */
+            z-index: -1;
+        }
+
+        @keyframes fadeInBackground {
+            to {
+                opacity: 1;
+            }
+        }
+
+        .rectangle {
+            background-color: rgba(0, 0, 0, 0.5); /* خلفية شبه شفافة */
+            color: white;
+            font-size: 24px;
+            font-weight: bold;
+            width: 100%;
+            height: 100px; /* ارتفاع مناسب للمستطيل */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            animation: fadeInText 1s 1s forwards; /* تأثير fade-in للنص أسرع */
+            text-align: center;
+        }
+
+        @keyframes fadeInText {
+            to {
+                opacity: 1;
+            }
         }
 
         .container {
@@ -145,7 +185,6 @@
             }
         }
 
-        /* Responsive Design */
         @media (max-width: 768px) {
             .container {
                 flex-direction: column;
@@ -189,100 +228,45 @@
                 right: 10px;
             }
         }
-
-        @media (max-width: 480px) {
-            .title {
-                font-size: 20px;
-            }
-
-            .paragraph {
-                font-size: 14px;
-            }
-
-            .box {
-                width: 130px;
-                height: 40px;
-                font-size: 14px;
-                padding: 8px 18px;
-            }
-
-            .animated-image {
-                width: 60px;
-                height: 60px;
-            }
-        }
     </style>
 </head>
 <body>
+    <!-- بداية المستطيل مع خلفية الصورة والنص المعروض -->
+    <div class="fade-in-background">
+        <div class="rectangle">
+            If the dish is made, we cook it. <br> 
+            Cook easily in 15 minutes even if you are on the surface of the moon.
+        </div>
+    </div>
 
     <div class="container">
         <div class="image-section">
-            <!-- تم استبدال الرابط هنا بالصورة الجديدة -->
             <img src="https://i.imgur.com/zKBg8mI.jpeg" alt="New Space Image" class="image">
         </div>
         <div class="text-section">
             <div class="title">Cook Every 15 Minutes – The Ultimate Time-Saver Cookbook</div>
             <p class="paragraph">
-                Do you only have 15 minutes to prepare a delicious meal? "Cook Every 15 Minutes" is your perfect cookbook for enjoying tasty food without wasting time. The book features a collection of quick and delicious recipes that take no more than 15 minutes to prepare, making it the ideal choice for those with busy lifestyles who still want to enjoy great meals with minimal effort.
+                Do you only have 15 minutes to prepare a delicious meal? "Cook Every 15 Minutes" is your perfect cookbook for enjoying tasty food without wasting time...
             </p>
-            <p class="paragraph">
-                Whether you're a beginner in the kitchen or a professional chef, this book will help you create a variety of meals that fit into your tight schedule, using simple and easy-to-find ingredients.
-            </p>
-            <p class="paragraph">
-                Start now and begin cooking with fast, healthy recipes that guarantee a delicious meal every time!
-            </p>
-            
-            <div class="section-title">Something for Everyone: Recipes for Meat Lovers and Vegetarians</div>
-            <p class="paragraph">
-                In "Cook Every 15 Minutes," we offer a wide variety of recipes designed to satisfy all tastes. Whether you're passionate about meat dishes or prefer plant-based meals, you'll find numerous options that cater to your needs. The book is divided into two specialized sections: one dedicated to hearty meat dishes and protein-packed juices, and the other focused on delicious, healthy plant-based recipes using fresh, vegetarian ingredients. This division ensures a culinary journey that caters to both meat lovers and vegetarians. Each recipe is crafted to be ready in just 15 minutes, offering the perfect solution for those who want to enjoy a tasty, nutritious meal in no time.
-            </p>
-
-            <div class="section-title">Why You Need This Cookbook</div>
-            <p class="paragraph">
-                This cookbook is the perfect solution for individuals with busy lives who still want to enjoy delicious, healthy meals without spending a lot of time in the kitchen. With recipes that can be prepared in just 15 minutes, it offers a quick and convenient way to prepare tasty dishes. Whether you're a meat lover or follow a plant-based diet, this book has something for everyone, with sections dedicated to both protein-packed meat dishes and fresh, vegetarian meals. The recipes are designed using simple, easy-to-find ingredients, ensuring that even beginners can cook with ease. By providing healthy, balanced meals in a short amount of time, this cookbook is the ideal choice for anyone looking to save time while eating well.
-            </p>
-
-            <div class="boxes-container">
-                <div class="box-container">
-                    <div class="box" onclick="goToDetailsPage()">Details</div>
-                </div>
-                <div class="box-container">
-                    <div class="box" onclick="goToCookInSpace()">Cook in Space</div>
-                </div>
-            </div>
         </div>
     </div>
 
-    <img src="https://imgur.com/cgwSe7u.jpeg" alt="Animated Image" class="animated-image">
+    <div class="boxes-container">
+        <div class="box">Get Started</div>
+        <div class="box">Learn More</div>
+        <div class="box">Buy Now</div>
+    </div>
+
+    <div class="animated-image">
+        <img src="https://i.imgur.com/JayqIIR.jpg" alt="Floating Animated Image">
+    </div>
 
     <script>
-        function goToDetailsPage() {
-            animateButton("Details");
-            setTimeout(() => {
-                window.location.href = "your-link-here"; // رابط الصفحة الخاصة بالتفاصيل
-            }, 500); // تأخير صغير لإعطاء تأثير النقر
-        }
-
-        function goToCookInSpace() {
-            animateButton("Cook in Space");
-            setTimeout(() => {
-                window.location.href = "https://example.com"; // رابط صفحة "Cook in Space"
-            }, 500); // تأخير صغير لإعطاء تأثير النقر
-        }
-
         function animateButton(buttonText) {
-            const buttons = document.querySelectorAll('.box');
-            buttons.forEach(button => {
-                if (button.textContent === buttonText) {
-                    button.style.transform = "scale(1.2)";
-                    button.style.transition = "transform 0.2s";
-                    setTimeout(() => {
-                        button.style.transform = "scale(1)";
-                    }, 200); // إعادة الحجم الطبيعي بعد التأثير
-                }
-            });
+            console.log(`Button clicked: ${buttonText}`);
         }
-    </script>
 
+        // إضافات متقدمة لتعزيز التفاعل
+    </script>
 </body>
 </html>
