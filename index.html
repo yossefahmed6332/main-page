@@ -15,49 +15,10 @@
         body, html {
             height: 100%;
             font-family: 'Roboto', sans-serif;
-        }
-
-        .fade-in-background {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
             background-image: url('https://i.imgur.com/JayqIIR.jpg');
             background-size: cover;
             background-position: center;
-            opacity: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            animation: fadeInBackground 3s forwards; /* تم تسريع fade-in */
-            z-index: -1;
-        }
-
-        @keyframes fadeInBackground {
-            to {
-                opacity: 1;
-            }
-        }
-
-        .rectangle {
-            background-color: rgba(0, 0, 0, 0.5); /* خلفية شبه شفافة */
-            color: white;
-            font-size: 24px;
-            font-weight: bold;
-            width: 100%;
-            height: 100px; /* ارتفاع مناسب للمستطيل */
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            animation: fadeInText 1s 1s forwards; /* تأثير fade-in للنص أسرع */
-            text-align: center;
-        }
-
-        @keyframes fadeInText {
-            to {
-                opacity: 1;
-            }
+            background-attachment: fixed;
         }
 
         .container {
@@ -185,6 +146,50 @@
             }
         }
 
+        .fade-in-background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('https://i.imgur.com/JayqIIR.jpg');
+            background-size: cover;
+            background-position: center;
+            opacity: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            animation: fadeInBackground 10s forwards, fadeOutBackground 2s 10s forwards;
+            z-index: -1;
+        }
+
+        .fade-in-background .text {
+            color: white;
+            font-size: 24px;
+            font-weight: bold;
+            text-align: center;
+            opacity: 0;
+            animation: fadeInText 10s forwards;
+        }
+
+        @keyframes fadeInBackground {
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes fadeOutBackground {
+            to {
+                opacity: 0;
+            }
+        }
+
+        @keyframes fadeInText {
+            to {
+                opacity: 1;
+            }
+        }
+
         @media (max-width: 768px) {
             .container {
                 flex-direction: column;
@@ -233,9 +238,9 @@
 <body>
     <!-- بداية المستطيل مع خلفية الصورة والنص المعروض -->
     <div class="fade-in-background">
-        <div class="rectangle">
-            If the dish is made, we cook it. <br> 
-            Cook easily in 15 minutes even if you are on the surface of the moon.
+        <div class="text">
+            Cook food easily as if you are swimming in space. <br> 
+            If nature made it, we must cook it.
         </div>
     </div>
 
