@@ -5,335 +5,47 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Landing Page</title>
     <style>
-        * {
+        body, html {
             margin: 0;
             padding: 0;
-            box-sizing: border-box;
-        }
-
-        body, html {
-            height: 100%;
-            font-family: Arial, sans-serif;
-            background-image: url('https://i.imgur.com/JayqIIR.jpg'); /* الرابط المباشر للصورة */
-            background-size: cover;
-            background-position: center;
-            background-attachment: fixed;
-        }
-
-        .container {
-            display: flex;
-            height: 100%;
-            flex-direction: row;
-        }
-
-        .image-section {
-            width: 40%;
             height: 100%;
             overflow: hidden;
-            opacity: 0;
-            transform: translateY(-50px);
-            animation: fadeIn 1s forwards;
         }
 
-        .image {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        .text-section {
-            width: 60%;
-            display: flex;
-            flex-direction: column;
-            justify-content: flex-start;
-            padding: 20px;
-            color: white;
-        }
-
-        .title, .section-title, .paragraph {
-            opacity: 0;
-            transform: translateY(20px);
-        }
-
-        .title {
-            font-size: 28px;
-            font-weight: bold;
-            margin-bottom: 10px;
-            text-align: left;
-            animation: fadeIn 1s 1s forwards;
-        }
-
-        .section-title {
-            font-size: 28px;
-            font-weight: bold;
-            margin-bottom: 10px;
-            text-align: left;
-            animation: fadeIn 1s 2s forwards;
-        }
-
-        .paragraph {
-            font-size: 18px;
-            text-align: left;
-            margin-bottom: 15px;
-            animation: fadeIn 0.5s 3s forwards;
-        }
-
-        .box {
-            background-color: #0066cc;
-            color: white;
-            padding: 12px 24px;
-            font-size: 18px;
-            border-radius: 8px;
-            cursor: pointer;
-            margin: 10px;
-            width: 180px;
-            height: 50px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            animation: fadeIn 1s 4s forwards, pulse 2s infinite;
-            transition: background-color 0.3s, transform 0.3s;
-        }
-
-        .box:hover {
-            background-color: #0055a5;
-            transform: scale(1.05);
-        }
-
-        .boxes-container {
-            display: flex;
-            justify-content: center;
-            align-items: flex-start;
-            margin-top: 20px;
-            opacity: 0;
-            transform: translateY(20px);
-            animation: fadeIn 1s 4s forwards;
-        }
-
-        .animated-image {
-            position: absolute;
-            bottom: 20px;
-            right: 20px;
-            width: 100px;
-            height: 100px;
-            animation: moveUpDown 2s infinite;
-        }
-
-        @keyframes fadeIn {
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        @keyframes pulse {
-            0%, 100% {
-                transform: scale(1);
-            }
-            50% {
-                transform: scale(1.1);
-            }
-        }
-
-        @keyframes moveUpDown {
-            0%, 100% {
-                transform: translateY(0);
-            }
-            50% {
-                transform: translateY(-10px);
-            }
-        }
-
-        /* New fade-in and fade-out animation for the background rectangle */
-        .fade-in-background {
+        .background {
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background-image: url('https://i.imgur.com/JayqIIR.jpg'); /* الرابط المباشر للصورة */
             background-size: cover;
             background-position: center;
+        }
+
+        #bg1 {
+            background-image: url('https://i.postimg.cc/DyfsKGvN/Whats-App-Image-2025-02-16-at-01-55-36-61820aa3-cleanup-1-cleanup.png');
+            z-index: 1;
+        }
+
+        #bg2 {
+            background-image: url('https://i.postimg.cc/9QKqTNd3/Whats-App-Image-2025-02-16-at-01-55-36-61820aa3-cleanup-1.png');
+            z-index: 0;
             opacity: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            animation: fadeInBackground 10s forwards, fadeOutBackground 2s 10s forwards; /* Fade in first, then fade out */
-            z-index: -1; /* يجعل الخلفية تحت جميع المحتويات الأخرى */
+            animation: fadeIn 2s ease-in-out forwards;
         }
 
-        .fade-in-background .text {
-            color: white;
-            font-size: 24px;
-            font-weight: bold;
-            text-align: center;
-            opacity: 0;
-            animation: fadeInText 10s forwards;
-        }
-
-        @keyframes fadeInBackground {
-            to {
-                opacity: 1;
-            }
-        }
-
-        @keyframes fadeOutBackground {
-            to {
+        @keyframes fadeIn {
+            from {
                 opacity: 0;
             }
-        }
-
-        @keyframes fadeInText {
             to {
                 opacity: 1;
-            }
-        }
-
-        /* Responsive Design */
-        @media (max-width: 768px) {
-            .container {
-                flex-direction: column;
-            }
-
-            .image-section {
-                width: 100%;
-                height: auto;
-            }
-
-            .text-section {
-                width: 100%;
-                padding: 10px;
-            }
-
-            .title {
-                font-size: 24px;
-            }
-
-            .paragraph {
-                font-size: 16px;
-            }
-
-            .box {
-                width: 150px;
-                height: 45px;
-                font-size: 16px;
-                padding: 10px 20px;
-            }
-
-            .boxes-container {
-                flex-direction: column;
-                align-items: center;
-                margin-top: 20px;
-            }
-
-            .animated-image {
-                width: 80px;
-                height: 80px;
-                bottom: 10px;
-                right: 10px;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .title {
-                font-size: 20px;
-            }
-
-            .paragraph {
-                font-size: 14px;
-            }
-
-            .box {
-                width: 130px;
-                height: 40px;
-                font-size: 14px;
-                padding: 8px 18px;
-            }
-
-            .animated-image {
-                width: 60px;
-                height: 60px;
             }
         }
     </style>
 </head>
 <body>
-
-    <!-- بداية المستطيل مع خلفية الصورة والنص المعروض -->
-    <div class="fade-in-background">
-        <div class="text">
-            Cook food easily as if you are swimming in space. <br> 
-            If nature made it, we must cook it.
-        </div>
-    </div>
-
-    <div class="container">
-        <div class="image-section">
-            <img src="https://i.imgur.com/zKBg8mI.jpeg" alt="New Space Image" class="image">
-        </div>
-        <div class="text-section">
-            <div class="title">Cook Every 15 Minutes – The Ultimate Time-Saver Cookbook</div>
-            <p class="paragraph">
-                Do you only have 15 minutes to prepare a delicious meal? "Cook Every 15 Minutes" is your perfect cookbook for enjoying tasty food without wasting time. The book features a collection of quick and delicious recipes that take no more than 15 minutes to prepare, making it the ideal choice for those with busy lifestyles who still want to enjoy great meals with minimal effort.
-            </p>
-            <p class="paragraph">
-                Whether you're a beginner in the kitchen or a professional chef, this book will help you create a variety of meals that fit into your tight schedule, using simple and easy-to-find ingredients.
-            </p>
-            <p class="paragraph">
-                Start now and begin cooking with fast, healthy recipes that guarantee a delicious meal every time!
-            </p>
-            
-            <div class="section-title">Something for Everyone: Recipes for Meat Lovers and Vegetarians</div>
-            <p class="paragraph">
-                In "Cook Every 15 Minutes," we offer a wide variety of recipes designed to satisfy all tastes. Whether you're passionate about meat dishes or prefer plant-based meals, you'll find numerous options that cater to your needs. The book is divided into two specialized sections: one dedicated to hearty meat dishes and protein-packed juices, and the other focused on delicious, healthy plant-based recipes using fresh, vegetarian ingredients. This division ensures a culinary journey that caters to both meat lovers and vegetarians. Each recipe is crafted to be ready in just 15 minutes, offering the perfect solution for those who want to enjoy a tasty, nutritious meal in no time.
-            </p>
-
-            <div class="section-title">Why You Need This Cookbook</div>
-            <p class="paragraph">
-                This cookbook is the perfect solution for individuals with busy lives who still want to enjoy delicious, healthy meals without spending a lot of time in the kitchen. With recipes that can be prepared in just 15 minutes, it offers a quick and convenient way to prepare tasty dishes. Whether you're a meat lover or follow a plant-based diet, this book has something for everyone, with sections dedicated to both protein-packed meat dishes and fresh, vegetarian meals. The recipes are designed using simple, easy-to-find ingredients, ensuring that even beginners can cook with ease. By providing healthy, balanced meals in a short amount of time, this cookbook is the ideal choice for anyone looking to save time while eating well.
-            </p>
-
-            <div class="boxes-container">
-                <div class="box-container">
-                    <div class="box" onclick="goToDetailsPage()">Details</div>
-                </div>
-                <div class="box-container">
-                    <div class="box" onclick="goToCookInSpace()">Cook in Space</div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <img src="https://imgur.com/cgwSe7u.jpeg" alt="Animated Image" class="animated-image">
-
-    <script>
-        function goToDetailsPage() {
-            animateButton("Details");
-            setTimeout(() => {
-                window.location.href = "your-link-here"; // رابط الصفحة الخاصة بالتفاصيل
-            }, 500); // تأخير صغير لإعطاء تأثير النقر
-        }
-
-        function goToCookInSpace() {
-            animateButton("Cook in Space");
-            setTimeout(() => {
-                window.location.href = "https://example.com"; // رابط صفحة "Cook in Space"
-            }, 500); // تأخير صغير لإعطاء تأثير النقر
-        }
-
-        function animateButton(buttonText) {
-            const buttons = document.querySelectorAll('.box');
-            buttons.forEach(button => {
-                if (button.textContent === buttonText) {
-                    button.style.transform = "scale(1.2)";
-                    button.style.transition = "transform 0.2s";
-                    setTimeout(() => {
-                        button.style.transform = "scale(1)";
-                    }, 200); // إعادة الحجم الطبيعي بعد التأثير
-                }
-            });
-        }
-    </script>
+    <div class="background" id="bg1"></div>
+    <div class="background" id="bg2"></div>
 </body>
 </html>
