@@ -1,30 +1,25 @@
 <!DOCTYPE html>
-<html lang="ar">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>صورة خلفية متجاوبة</title>
     <style>
-        /* إزالة الهوامش والإطارات */
-        body, html {
+        body {
             margin: 0;
-            padding: 0;
-            height: 100%;
-            overflow: hidden; /* لمنع التمرير */
+            min-height: 100vh;
         }
 
-        /* جعل الصورة تغطي الشاشة بالكامل */
-        img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover; /* الحفاظ على نسبة العرض إلى الارتفاع دون تشويه */
-            position: absolute;
-            top: 0;
-            left: 0;
+        .half-circle {
+            width: 33.33vw;
+            height: 16.665vw; /* نصف القطر */
+            background: rgba(0, 0, 255, 0.7);
+            border-radius: 16.665vw 16.665vw 0 0;
+            position: fixed;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
         }
     </style>
 </head>
 <body>
-    <img src="https://i.postimg.cc/cJx7XHZv/upscalemedia-transformed-2.jpg" alt="خلفية">
+    <div class="half-circle"></div>
 </body>
 </html>
