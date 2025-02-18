@@ -5,18 +5,18 @@
         body {
             margin: 0;
             min-height: 100vh;
+            display: flex;
+            justify-content: center; /* توسيط أفقي */
+            align-items: flex-end; /* توسيط رأسي من الأسفل */
             overflow: hidden; /* لمنع التمرير إذا كانت الدائرة كبيرة */
         }
 
         .half-circle {
-            width: 16.665vw; /* تقليل العرض إلى النصف (33.33vw / 2) */
-            height: 10vw; /* تقليل الطول إلى النصف (20vw / 2) */
+            width: 20vw; /* العرض 20% من عرض الصفحة */
+            height: 10vw; /* الارتفاع نصف العرض (لحفاظ على التناسب) */
             background: rgba(0, 0, 255, 0.7);
-            border-radius: 10vw 10vw 0 0; /* تعديل نصف القطر ليتناسب مع الارتفاع الجديد */
-            position: fixed;
-            bottom: 0;
-            left: 70%; /* إبعاد الدائرة عن الجانب الأيمن بنسبة 30% */
-            transform: translateX(-50%) scale(2.5); /* تكبير الحجم بنسبة 250% */
+            border-radius: 10vw 10vw 0 0; /* نصف القطر نصف الارتفاع */
+            transform: scale(2.5); /* تكبير الحجم بنسبة 250% */
         }
     </style>
 </head>
