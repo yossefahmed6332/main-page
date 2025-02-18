@@ -5,17 +5,18 @@
         body {
             margin: 0;
             min-height: 100vh;
+            overflow: hidden; /* لمنع التمرير إذا كانت الدائرة كبيرة */
         }
 
         .half-circle {
-            width: 33.33vw;
-            height: 16.665vw; /* نصف القطر */
+            width: 66.66vw; /* زيادة العرض بنسبة 100% (33.33vw * 2) */
+            height: 20vw; /* زيادة الطول بنسبة 20% (16.665vw * 1.2) */
             background: rgba(0, 0, 255, 0.7);
-            border-radius: 16.665vw 16.665vw 0 0;
+            border-radius: 20vw 20vw 0 0; /* تعديل نصف القطر ليتناسب مع الارتفاع الجديد */
             position: fixed;
             bottom: 0;
-            left: 50%;
-            transform: translateX(-50%);
+            left: 70%; /* إبعاد الدائرة عن الجانب الأيمن بنسبة 30% */
+            transform: translateX(-50%) scale(2.5); /* تكبير الحجم بنسبة 250% */
         }
     </style>
 </head>
