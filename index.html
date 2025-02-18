@@ -1,63 +1,56 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <style>
-        body {
-            margin: 0;
-            min-height: 100vh;
-            display: flex;
-            overflow: hidden;
-            position: relative;
-        }
+/* طريقة CSS للتموج الجانبي */
+.image-wrapper {
+  position: relative;
+  display: inline-block;
+  margin: 20px;
+}
 
-        .image-container {
-            width: 33.33vw; /* ثلث عرض الشاشة */
-            height: 100vh;
-            position: relative;
-            overflow: hidden;
-        }
+.image-wrapper::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: -30px;
+  width: 30px;
+  height: 100%;
+  background: repeating-linear-gradient(
+    45deg,
+    rgba(0,0,0,0.1) 0 10px,
+    transparent 10px 20px
+  );
+  animation: verticalWave 2s linear infinite;
+}
 
-        .image-container img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
+@keyframes verticalWave {
+  0% { background-position: 0 0; }
+  100% { background-position: 0 40px; }
+}
 
-        .wave-effect {
-            position: absolute;
-            right: -50px; /* تعديل موقع التموج */
-            top: 0;
-            bottom: 0;
-            width: 100px;
-            background: linear-gradient(to right, 
-                rgba(255,255,255,0) 0%,
-                rgba(255,255,255,1) 100%);
-            mask-image: url(#wave);
-        }
+/* طريقة SVG للتموج الجانبي */
+.wave-container {
+  position: relative;
+  display: inline-block;
+  margin: 20px;
+}
 
-        svg {
-            width: 0;
-            height: 0;
-        }
-    </style>
-    
-    <!-- تعريف شكل التموج باستخدام SVG -->
-    <svg>
-        <defs>
-            <mask id="wave">
-                <path d="M0,0 Q25,40 50,0 T100,0 V100 H0" 
-                      fill="white"/>
-                <path d="M0,50 Q25,90 50,50 T100,50 V100 H0" 
-                      fill="white"/>
-            </mask>
-        </defs>
-    </svg>
-</head>
-<body>
-    <div class="image-container">
-        <img src="https://i.postimg.cc/C1frS2fb/f2bbd435-1aeb-406c-aa6a-6531c0a864b4-LE-upscale-balanced-x4-tone-enhance-50-color-enhance-100.jpg" 
-             alt="image">
-        <div class="wave-effect"></div>
-    </div>
-</body>
-</html>
+.wave {
+  position: absolute;
+  top: 0;
+  left: 100%;
+  height: 100%;
+  width: 30px;
+  animation: svgWave 2s linear infinite;
+}
+
+@keyframes svgWave {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(-20px); }
+}
+
+/* تنسيقات عامة للصورة */
+img {
+  display: block;
+  max-width: 300px;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
